@@ -1,4 +1,6 @@
 library(pastecs)
+library(extremevalues)
+library(ggplot2)
 
 get_stats <- function (data){
   colnames(data) <- attributes_names
@@ -28,4 +30,13 @@ get_stats <- function (data){
   }
 }
 
+get_extreme_values <- function(v) {
+  if (!is.numeric(v)) break
+  print(getOutliers(v))
+}
+
 get_stats(training_set)
+get_extreme_values(training_set[, 1])
+
+ggplot(training_set, aes(x=V42, y=V1, fill=V42)) + geom_boxplot() +
+  stat_summary(fun.y=mean, geom="point", shape=5, size=4)
