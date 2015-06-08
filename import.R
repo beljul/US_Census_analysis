@@ -1,5 +1,5 @@
 # Get csv files into a data frames.
-training_set <- read.csv("data/census_income_learn.csv", header=FALSE, quote="")
+training_set <- read.csv("data/census_income_learn.csv", header=FALSE)
 testing_set <- read.csv("data/census_income_test.csv", header=FALSE, quote="")
 attributes_names <- c('Age', 'Worker.class', 'Industry.code', 'Occupation.code',
                       'Education', 'Wage', 'Enroll.education', 'Marital.status',
