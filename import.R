@@ -12,3 +12,5 @@ attributes_names <- c('Age', 'Worker.class', 'Industry.code', 'Occupation.code',
                       'Father.country', 'Mother.coutry', 'Self.country', 'Citizenship', 'Business.types',
                       'FilQuestionnaire', 'VeteransBenefits', 'Weeks.workedPerYear', 'Year')
 class_names <- c(' - 50000.', ' 50000+.')
+colnames(training_set) <- c(attributes_names, 'Gain')
+colnames(testing_set) <- c(attributes_names, 'Gain')
