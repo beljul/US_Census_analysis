@@ -9,7 +9,7 @@ colnames(xDataFrame) <- attributes_names
 (fmla <- as.formula(paste("y ~ ", paste(attributes_names, collapse= "+"))))
 # Compute the decision tree itself
 mytree <- rpart(fmla, data=xDataFrame, control=rpart.control(minsplit=1, cp=0), parms=list(split='information'), method="class")
-
+mytree <- prune(mytree, 0.005)
 # Get classes from testing set
 y_test <- testing_set[, 42]
 # Get attributes from testing set
@@ -22,5 +22,6 @@ pred <- predict(mytree, newdat=testDataFrame, type='vector')
 # Print the error rate
 # Gini : 6.58%
 # Entropy : 6.38%
+# Entropy based on pruning level from 10-cross validation : 5.05%
 error_test = sum(as.character(y_test) != class_names[pred])
 print(error_test/length(y_test)*100)
