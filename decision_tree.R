@@ -25,3 +25,6 @@ pred <- predict(mytree, newdat=testDataFrame, type='vector')
 # Entropy based on pruning level from 10-cross validation : 5.05%
 error_test = sum(as.character(y_test) != class_names[pred])
 print(error_test/length(y_test)*100)
+
+# Print confusion matrix
+table(as.character(y_test), class_names[pred])

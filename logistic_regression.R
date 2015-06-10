@@ -20,6 +20,9 @@ testDataFrame = scores_test[, 1:2]# Add columns names
 # Evaluate the logistic regression for the new data object
 pred = predict.glm(w_est, newdata=testDataFrame, type="response")
 error_test = sum((as.numeric(y_test)-1)!=(pred>0.5));
-# Print the error rate 
+# Print the error rate
 # 6.20%
 print(error_test/length(y_test)*100)
+
+# Print confusion matrix
+table((as.numeric(y_test)-1), (pred>0.5))

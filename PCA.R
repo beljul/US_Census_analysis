@@ -9,7 +9,7 @@ apply_PCA <- function(data){
   data_numeric.pca <- prcomp(data_numeric, retx=TRUE, center=TRUE, scale=TRUE)
   
   scores = as.data.frame(data_numeric.pca$x)
-  scores$class = factor(data_numeric$V42)
+  scores$class = factor(data_numeric$Gain)
   
   return(scores)
 }
